@@ -13,7 +13,7 @@ const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        bg: "#5e5e71",
+        bg: "linear-gradient(90deg, rgba(95,95,150,1) 0%, rgba(94,94,113,1) 34%, rgba(22,22,59,1) 100%);",
       },
     }),
   },
