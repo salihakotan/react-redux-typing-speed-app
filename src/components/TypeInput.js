@@ -60,6 +60,10 @@ function TypeInput() {
     <>
       <div className="typeInputArea">
         <Input
+        height="50px"
+        fontSize="30px"
+        padding="10px"
+        backgroundColor="white"
           disabled={timesUp}
           value={inputValue}
           onChange={(e) => handleChange(e.target.value)}

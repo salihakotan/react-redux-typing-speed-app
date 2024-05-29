@@ -24,12 +24,12 @@ function Header() {
 
   return (
     <Box mt={10}>
-      <Heading as="h1">Typing Speed App</Heading>
+      <Heading color="white" as="h1">Typing Speed App</Heading>
       <Box mt={20} className="headerButtonsArea">
         <Button colorScheme="green" className="btn">Giriş</Button>
         <select
           value={lang}
-          style={{ backgroundColor: "purple" }}
+          style={{ backgroundColor: "purple",width:"150px" }}
           className="btn"
           onChange={(e) => handleChange(e.target.value)}
         >
