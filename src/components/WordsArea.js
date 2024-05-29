@@ -2,7 +2,7 @@ import React from 'react'
 
 function WordsArea() {
   return (
-    <div><textarea>lorem ipsum lorem ipsum</textarea></div>
+    <div><textarea disabled>lorem ipsum lorem ipsum</textarea></div>
   )
 }
 
