@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getLangs, setLang } from "../redux/typesSlice";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 
 function Header() {
   const dispatch = useDispatch();
@@ -22,10 +23,10 @@ function Header() {
   };
 
   return (
-    <div>
-      <h1>Typing Speed App</h1>
-      <div className="headerButtonsArea">
-        <button className="btn">Giriş</button>
+    <Box mt={10}>
+      <Heading as="h1">Typing Speed App</Heading>
+      <Box mt={20} className="headerButtonsArea">
+        <Button colorScheme="green" className="btn">Giriş</Button>
         <select
           value={lang}
           style={{ backgroundColor: "purple" }}
@@ -36,8 +37,8 @@ function Header() {
                 <option key={index} value={item.name}>{item.name}</option>
             ))}
         </select>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

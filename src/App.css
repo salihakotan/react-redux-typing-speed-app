@@ -61,3 +61,11 @@ input {
   justify-content: left;
   margin: 30px auto 30px auto;
 }
+
+.greenText {
+  color: green;
+}
+
+.redText {
+  color: red;
+}
