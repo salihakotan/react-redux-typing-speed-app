@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;700&display=swap");
+@import "mixin";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Sora", sans-serif;
+}
+
+
+html {
+  font-size: 8px;
+  
+  @include md{
+    font-size: 12px;
+  }
+
+  @include lg{
+    font-size: 16px;
+  }
+}
+
+html,
+body,
+#root,
+.App {
+  background-color: $bg-light;
+  height: 100%
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  align-items: center;
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem 2rem;
+    
+    &__content {
+      height: 6rem;
+      width: 95%;
+      margin-left: auto;
+      background-color: $bg-indigo;
+      border-radius: 1.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: white;
+      overflow: hidden;
+      
+      .title {
+        margin: auto;
+        font-size: 30px;
+        transform: translateX(30px);
+      }
+  
+      .replay {
+        height: 100%;
+
+        button {
+          display: flex;
+          background: none;
+          color: red;
+          font-size: 1.1rem;
+          height: 100%;
+          color: white;
+          width: 7rem;
+          border: none;
+          cursor: pointer;
+
+          svg {
+            font-size: 2rem;
+            margin: auto;
+          }
+        }
+      }
+    }
+  
+    &__timer {
+      width: 9rem;
+      height: 9rem;
+      position: absolute;
+      font-size: 1.9rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #ff4cd8;
+      color: white;
+      z-index: 1;
+      margin-left: auto;
+
+      @include md{
+        width: 11rem;
+        height: 11rem;
+      }
+      
+      svg {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+    }
+  }
+
+  .textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $bg-indigo;
+    overflow: hidden;
+    width: 80%;
+    height: 11rem;
+    padding: 1.3rem;
+    border-radius: .9rem;
+
+    @include md{
+      width: 70%;
+    }
+
+    @include lg{
+      width: 60%;
+    }
+
+    &__inner{
+      display: flex;
+      justify-content: space-around;
+      height: 100%;
+      font-size: 1.8rem;
+      flex-wrap: wrap;
+      row-gap: .9rem;
+      overflow: hidden;
+
+      .word {
+        @include centered-row;
+        height: 3.3rem;
+        margin: 2px;
+        padding: .5rem .75rem;
+        border-radius: 1.1rem;
+  
+        &.current {
+          background-color: $bg-current;
+        }
+  
+        &.highlightWrong{
+          background-color: $bg-red;
+          color:white
+        }
+  
+        &.wrong{
+          color:red
+        }
+  
+        &.correct{
+          color:$text-green
+        }
+      }
+    }
+  }
+
+  .type{
+    width: 70%;
+    height: 5rem;
+    background-color: $bg-light;
+    position: relative;
+
+    @include md{
+      width: 60%;
+    }
+
+    @include lg{
+      width: 50%;
+    }
+
+    &__input{
+      width: 100%;
+      height: 100%;
+      padding: 0 .9rem;
+      font-size: 1.5rem;
+      border: 2px solid $bg-indigo;
+      background-color: $bg-light;
+      
+      &:focus{
+        outline: 2px solid $bg-indigo;
+      }
+    }
+
+    &__placeholder{
+      position: absolute;
+      top: -.6rem;
+      right: 3.2rem;
+      font-size: 1.3rem;
+      background-color: $bg-light;
+      padding: 0 .6rem;
+    }
+  }
+
+  .results{
+    @include centered-row;
+    background-color: rgba(#000, $alpha: .7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .stats{
+      @include centered-col;
+      background-color: $bg-results;
+      color: white;
+      justify-content:space-evenly;
+      border-radius: .6rem;
+      height: 60%;
+      width: 80%;
+      padding: 1.8rem;
+
+      @include md{
+        height: 60%;
+        width: 60%;
+      }
+  
+      @include lg{
+        height: 60%;
+        width: 40%;
+      }
+
+      &__title{
+        @include centered-row;
+        font-size: 2.2rem;
+        font-weight: bold;
+        
+        svg{
+          color: #faedcd;
+          font-size: 2.7rem;
+          margin-left: .4rem;
+          margin-bottom: .3rem;
+        }
+      }
+  
+      &__wpm{
+        font-size: 2.1rem; 
+        margin-bottom: 1.4rem;
+        text-align: center;
+
+        span{
+          display: block;
+          font-size: .8rem;
+          font-weight: 300;
+          // font-style: italic;
+        }
+      }
+
+      &__inner{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        width: 50%;
+        margin-bottom: 1.4rem;
+
+        .spec{
+          width: 100%;
+          display: flex;
+          font-size: 1.4rem;
+          font-weight: bold;
+
+          .value{
+            margin-left: auto;
+          }
+        }
+        
+        .keyStroke span{
+
+          &::before{
+            content: attr(wrong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            color: $text-red;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-right: .4rem;
+          }
+
+          &::after{
+            content:  attr(correct) ;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            font-weight: bold;
+            color: $text-green;
+            border-radius: 50%;
+            margin-left: .4rem;
+          }
+        }
+      }
+
+      &__replay{
+        @include centered-row;;
+        background: none;
+        border: none;
+        width: 100%;
+        color: white;
+
+        svg{
+          font-size: 2rem;
+          cursor: pointer;
+          transition: transform 300ms;
+
+          &:hover{
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+  }
+}

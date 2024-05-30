@@ -1,4 +1,4 @@
-
+/* 
 .App {
   text-align: center;
   width: 80%;
@@ -69,3 +69,15 @@ input {
 .redText {
   color: red;
 }
+
+.greenBack {
+  background-color: rgb(57, 255, 57);
+}
+.redBack {
+  background-color: rgb(255, 28, 28);
+}
+
+
+.yellowBack {
+  background-color: yellow;
+} */
