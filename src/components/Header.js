@@ -1,41 +1,47 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLangs, setLang } from "../redux/typesSlice";
 import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { setLang, getItems } from "../redux/typingSlice";
 
 function Header() {
   const dispatch = useDispatch();
 
-  const status = useSelector((state) => state.types.language.status);
+  const status = useSelector((state) => state.typing.status);
 
-  const items = useSelector((state) => state.types.language.items);
+  const items = useSelector((state) => state.typing.items);
 
-  const lang = useSelector((state) => state.types.language.name);
+  const lang = useSelector((state) => state.typing.language);
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(getLangs());
+      dispatch(getItems());
     }
   }, [dispatch, status]);
 
   const handleChange = (e) => {
-    dispatch(setLang());
+    dispatch(setLang(e));
+    dispatch(getItems());
+
   };
 
   return (
     <Box mt={10}>
       <Heading color="white" as="h1">Typing Speed App</Heading>
       <Box mt={20} className="headerButtonsArea">
-        <Button colorScheme="green" className="btn">Giriş</Button>
         <select
-          value={lang}
-          style={{ backgroundColor: "purple",width:"150px" }}
+          defaultValue={lang}
+          style={{ backgroundColor: "green",width:"150px" }}
           className="btn"
           onChange={(e) => handleChange(e.target.value)}
         >
-            {items.map((item,index)=> (
-                <option key={index} value={item.name}>{item.name}</option>
-            ))}
+        {console.log("****items", items)}
+            {
+               items && (
+                items.map((item,index)=> (
+                <option key={index} value={item.lang_name}>{item.lang_name}</option>
+               )
+            ))
+            }
         </select>
       </Box>
     </Box>

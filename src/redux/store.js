@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import typesSlice from "./typesSlice";
+import typingSlice from "./typingSlice";
 
 export const store = configureStore({
     reducer:{
-        types:typesSlice
+        typing:typingSlice
     }
 })
